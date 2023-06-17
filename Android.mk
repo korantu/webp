@@ -2,6 +2,13 @@
 ifdef NDK_ROOT
 LOCAL_PATH := $(call my-dir)
 
+
+APP_ABI := armeabi-v7a armeabi arm64-v8a
+APP_PLATFORM := android-21
+APP_OPTIM := release
+APP_STL := c++_static
+ENABLE_SHARED := 1
+
 WEBP_CFLAGS := -Wall -DANDROID -DHAVE_MALLOC_H -DHAVE_PTHREAD -DWEBP_USE_THREAD
 WEBP_CFLAGS += -fvisibility=hidden
 
@@ -219,6 +226,7 @@ LOCAL_SRC_FILES := \
     $(dsp_enc_srcs) \
     $(enc_srcs) \
     $(utils_enc_srcs) \
+    swig/libwebp_java_wrap.c
 
 LOCAL_CFLAGS := $(WEBP_CFLAGS)
 LOCAL_EXPORT_C_INCLUDES += $(LOCAL_PATH)/src $(LOCAL_PATH)
